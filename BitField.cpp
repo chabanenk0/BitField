@@ -22,6 +22,27 @@ class BitField
   friend istream& operator>>(istream& os, BitField & a); //read from string 
   int getBit(int BitNumber);
   int setBit(int BitNumber, int bit);
-}
+};
 
 // test the dev branch
+
+ BitField::BitField(long newData)
+ {  data=newData;
+ }
+ BitField::BitField(const BitField &x)
+ {data=x.data;
+ }
+ BitField::BitField()
+ { data=0;
+ }
+ BitField::~BitField()
+ {
+     
+ }
+int main(int argc, char *argv[])
+{ BitField b1;
+  BitField b2(256);
+  BitField b3=b2;
+    system("PAUSE");
+  return EXIT_SUCCESS;
+    }
