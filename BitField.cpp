@@ -11,6 +11,12 @@ class BitField
   BitField(long newData);
   BitField(const BitField &x);
   ~BitField();
+
+  char BitField::getBit (int bitNumber)
+{
+  long z = data>>bitNumber;
+  return z&1;
+}  
   long getData();
   void setData(long newData);
   friend BitField operator&(BitField & a, BitField & b); //and
