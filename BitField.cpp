@@ -28,8 +28,38 @@ class BitField
 
 // test the dev branch
 
-  char BitField::getBit (int bitNumber)
+char BitField::getBit (int bitNumber)
 {
   long z = data>>bitNumber;
   return z&1;
 }  
+
+BitField::BitField(long newData)
+
+{  data=newData;
+}
+
+BitField::BitField(const BitField &x)
+{
+  data=x.data;
+
+}
+
+BitField::BitField()
+{
+  data=0;
+}
+
+BitField::~BitField()
+{
+
+}
+
+int main(int argc, char *argv[])
+{
+  BitField b1;
+  BitField b2(256);
+  BitField b3=b2;
+  system("PAUSE");
+  return EXIT_SUCCESS;
+}
