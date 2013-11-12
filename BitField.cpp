@@ -69,6 +69,27 @@ int main(int argc, char *argv[])
   BitField b2(255);
   BitField b3=b2;
   b2.show(); 
+  { extern void _bits(unsigned sp);//бітове представлення беззнакового цілого числа 0 <= п <= 255.
+
+     unsigned val;
+
+     printf("Введіть ціле беззнакове число n ");
+      scanf("%u",&val);
+
+     if (val>=0) _bits(val); }
+
+ void _bits(unsigned sp);
+
+{const int max=7; 
+int i;
+int sp;
+printf("\n Битове представлення для %u",sp);
+ 
+     for (double i=max;i>=0; i--)
+
+     printf("%d", sp>>i&l);
+
+}
   system("PAUSE");
   return EXIT_SUCCESS;
 }
