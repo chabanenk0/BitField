@@ -28,6 +28,15 @@ class BitField
 
 // test the dev branch
 
+long BitField::getData()
+        {
+             return data;
+        }
+        void BitField::setData(long newData)
+        {
+          data=newData;
+        }
+
 char BitField::getBit (int bitNumber)
 {
   long z = data>>bitNumber;
