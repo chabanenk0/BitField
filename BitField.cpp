@@ -16,7 +16,7 @@ class BitField
   void setData(long newData);
   friend BitField operator&(BitField & a, BitField & b); //and
   friend BitField operator|(BitField & a, BitField & b); //or
-  BitField operator!(); //not
+  friend BitField operator!(BitField & a); //not
   friend BitField operator^(BitField & a, BitField & b); //xor
   void show();
   friend ostream& operator<<(ostream& os, BitField & a); //print to stream
@@ -24,10 +24,21 @@ class BitField
 
   int setBit(int BitNumber, int bit);
   char getBit (int bitNumber);
+  
 };
 
-// test the dev branch
 
+// test the dev branch
+  long BitField::getData()
+{
+  long z = data;
+  return z;
+}
+void BitField::setData(long newData)
+{
+  data= newData;
+  
+}
 char BitField::getBit (int bitNumber)
 {
   long z = data>>bitNumber;
@@ -61,14 +72,21 @@ for(int i=0; i<32; i++)
 cout<<(int) getBit(i);
 }
 }
-
+BitField operator!(BitField &a)
+{BitField b;
+//b.data=~a.data;
+long x=a.getData();
+b.setData(~x);
+return b;
+}
 
 int main(int argc, char *argv[])
 {
   BitField b1;
   BitField b2(255);
   BitField b3=b2;
-  b2.show(); 
+  b2.show();
+  
   system("PAUSE");
   return EXIT_SUCCESS;
 }
