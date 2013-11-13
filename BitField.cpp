@@ -16,7 +16,7 @@ class BitField
   void setData(long newData);
   friend BitField operator&(BitField & a, BitField & b); //and
   friend BitField operator|(BitField & a, BitField & b); //or
-  BitField operator!(); //not
+  friend BitField operator!(BitField & a); //not
   friend BitField operator^(BitField & a, BitField & b); //xor
   void show();
   friend ostream& operator<<(ostream& os, BitField & a); //print to stream
@@ -69,6 +69,14 @@ for(int i=0; i<32; i++)
 {
 cout<<(int) getBit(i);
 }
+}
+
+BitField operator!(BitField &a)
+{BitField b;
+//b.data=~a.data;
+long x=a.getData();
+b.setData(~x);
+return b;
 }
 
 
