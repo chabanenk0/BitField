@@ -71,6 +71,14 @@ cout<<(int) getBit(i);
 }
 }
 
+BitField operator&(BitField &a, BitField &b)
+{BitField c;
+long x=a.getData();
+long y=b.getData();
+c.setData(x&y);
+return c;
+}
+
 BitField operator!(BitField &a)
 {BitField b;
 //b.data=~a.data;
