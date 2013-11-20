@@ -94,6 +94,14 @@ b.setData(~x);
 return b;
 }
 
+BitField operator&(BitField &a, BitField &b)
+{BitField c;
+ long x=a.getData();
+ long y=b.getData();
+ c.setData(x&y);
+ return c;
+}
+
 
 int main(int argc, char *argv[])
 {
