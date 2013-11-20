@@ -29,29 +29,29 @@ class BitField
 // test the dev branch
 
 long BitField::getData()
-        {
-             return data;
-        }
-        void BitField::setData(long newData)
-        {
-          data=newData;
-        }
+{
+    return data;
+}
+
+void BitField::setData(long newData)
+{
+    data=newData;
+}
 
 char BitField::getBit (int bitNumber)
 {
-  long z = data>>bitNumber;
-  return z&1;
+   long z = data>>bitNumber;
+   return z&1;
 }
 
 BitField::BitField(long newData)
-
-{ data=newData;
+{
+   data=newData;
 }
 
 BitField::BitField(const BitField &x)
 {
-  data=x.data;
-
+   data=x.data;
 }
 
 BitField::BitField()
@@ -79,7 +79,7 @@ c.setData(x|y);
 return c;}
 
 
- BitField operator^(BitField &a,BitField &b)
+BitField operator^(BitField &a,BitField &b)
 {   BitField c;
 	c.setData( a.getData()^b.getData());
 	return c;
@@ -107,10 +107,30 @@ int main(int argc, char *argv[])
 {
   BitField b1;
   BitField b2(255);
-  BitField b3=b2;
+  BitField b3(127);
+  cout<<"b2:\t\t\t";
   b2.show(); 
+    cout<<endl;
+  cout<<"b3:\t\t\t";
+  b3.show(); 
+    cout<<endl;
+  cout<<"b4=b2^b3:\t\t";
   BitField b4=b1^b2;
   b4.show();
+  cout<<endl;
+  cout<<"b4=b2&b3:\t\t";
+  b4=b2&b3;
+  b4.show();
+    cout<<endl;
+  cout<<"b4=b2|b3:\t\t";
+  b4=b2|b3;
+  b4.show();
+    cout<<endl;
+  cout<<"b4=!b2:\t\t\t";
+  b4=!b2;
+  b4.show();
+  cout<<endl;
+
   system("PAUSE");
   return EXIT_SUCCESS;
 }
