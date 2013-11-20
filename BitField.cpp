@@ -79,6 +79,13 @@ c.setData(x&y);
 return c;
 }
 
+ BitField operator^(BitField &a,BitField &b)
+{   BitField c;
+	c.setData( a.getData()^b.getData());
+	return c;
+	//XoR
+}
+
 BitField operator!(BitField &a)
 {BitField b;
 //b.data=~a.data;
@@ -94,6 +101,8 @@ int main(int argc, char *argv[])
   BitField b2(255);
   BitField b3=b2;
   b2.show(); 
+  BitField b4=b1^b2;
+  b4.show();
   system("PAUSE");
   return EXIT_SUCCESS;
 }
